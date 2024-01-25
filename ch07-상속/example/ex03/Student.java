@@ -1,3 +1,5 @@
+package ex03;
+
 public class Student extends Person {
     int studentNo;
 

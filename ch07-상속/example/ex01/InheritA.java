@@ -1,3 +1,5 @@
+package ex01;
+
 public class InheritA {
     int field1;
 

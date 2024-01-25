@@ -1,3 +1,5 @@
+package ex01;
+
 public class InheritB extends InheritA {
     String field2;
 

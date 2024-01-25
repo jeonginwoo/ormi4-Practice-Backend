@@ -1,3 +1,5 @@
+package ex01;
+
 public class InheritanceExample {
     public static void main(String[] args) {
         InheritB b = new InheritB();
