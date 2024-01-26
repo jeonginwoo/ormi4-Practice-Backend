@@ -1,3 +1,5 @@
+package Sample;
+
 public class SampleClass {
     public static void main(String[] args) {
         int value = 10;

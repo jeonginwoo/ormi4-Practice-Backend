@@ -1,3 +1,5 @@
+package Sample;
+
 public class VariableExample {
     public static void main(String[] args) {
         int a = 123;
