@@ -1,8 +1,11 @@
 package ex05.ex05_02;
 
 public class Main {
-    Dog dog = new Dog();
-    Cat cat = new Cat();
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        Cat cat = new Cat();
 
-    dog.
+        dog.sound();
+        cat.sound();
+    }
 }
