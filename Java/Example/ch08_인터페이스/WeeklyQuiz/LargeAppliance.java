@@ -19,12 +19,12 @@ public class LargeAppliance extends Product implements DeliveryChargeCalculator 
         } else {
             deliveryCharge = new BigDecimal("10000");
         }
-
         // 가격 조건
         if (price.compareTo(new BigDecimal(30000)) < 0) {
             // 무게단위 배송비 적용
         } else if (price.compareTo(new BigDecimal(30000)) >= 0 && price.compareTo(new BigDecimal(100000)) < 0) {
-            deliveryCharge.subtract(new BigDecimal("1000"));
+            // 1000원 할인
+            deliveryCharge = deliveryCharge.subtract(new BigDecimal("1000"));
         } else {
             deliveryCharge = new BigDecimal("0");
         }

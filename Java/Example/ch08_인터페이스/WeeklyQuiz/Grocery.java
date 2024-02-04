@@ -24,7 +24,8 @@ public class Grocery extends Product implements DeliveryChargeCalculator {
         if (price.compareTo(new BigDecimal(30000)) < 0) {
             // 무게단위 배송비 적용
         } else if (price.compareTo(new BigDecimal(30000)) >= 0 && price.compareTo(new BigDecimal(100000)) < 0) {
-            deliveryCharge.subtract(new BigDecimal("1000"));
+            // 1000원 할인
+            deliveryCharge = deliveryCharge.subtract(new BigDecimal("1000"));
         } else {
             deliveryCharge = new BigDecimal("0");
         }
