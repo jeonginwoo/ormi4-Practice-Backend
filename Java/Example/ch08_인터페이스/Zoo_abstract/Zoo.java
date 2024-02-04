@@ -1,6 +1,6 @@
 package ch08_인터페이스.Zoo_abstract;
 
-public class Main {
+public class Zoo {
     public static void main(String[] args) {
         ZooKeeper zooKeeper = new ZooKeeper();
 
