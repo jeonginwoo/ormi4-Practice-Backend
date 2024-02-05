@@ -1,11 +1,11 @@
-package ch08_인터페이스.WeeklyQuiz;
+package ch08_인터페이스.DaliyQuiz;
 
 import java.math.BigDecimal;
 
-public class Product {
+public class Product implements Promotion {
     private String name;
-    private BigDecimal price;
-    private Double weight;
+    BigDecimal price;
+    double weight;
 
     Product(String name, BigDecimal price, double weight) {
         this.name = name;
@@ -35,5 +35,10 @@ public class Product {
 
     public double getWeight() {
         return weight;
+    }
+
+    @Override
+    public BigDecimal getDiscountAmount(){
+        return BigDecimal.ZERO;
     }
 }
