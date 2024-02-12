@@ -1,4 +1,4 @@
-package ch08_인터페이스.WeeklyQuiz;
+package WeeklyQuiz.Week2;
 
 import java.math.BigDecimal;
 
