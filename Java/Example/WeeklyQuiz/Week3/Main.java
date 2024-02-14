@@ -33,7 +33,7 @@ public class Main {
                         4. 연락처 검색
                         5. 종료
                         """);
-                System.out.println("메뉴를 선택해주세요: ");
+                System.out.print("메뉴를 선택해주세요: ");
                 try {
                     Scanner sc = new Scanner(System.in);
                     option = sc.nextInt();
