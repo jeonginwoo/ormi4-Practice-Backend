@@ -10,4 +10,9 @@ public class BusinessContact extends Contact {
     public String getCompany() {
         return company;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s, 회사명: %s", super.toString(), company);
+    }
 }

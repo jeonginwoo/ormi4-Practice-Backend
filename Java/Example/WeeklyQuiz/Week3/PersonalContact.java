@@ -10,4 +10,9 @@ public class PersonalContact extends Contact {
     public String getRelationship() {
         return relationship;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s, 관계: %s", super.toString(), relationship);
+    }
 }

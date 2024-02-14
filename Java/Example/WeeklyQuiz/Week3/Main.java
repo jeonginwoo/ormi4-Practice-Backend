@@ -1,77 +1,98 @@
 package WeeklyQuiz.Week3;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
+    private static boolean isPhoneNumber(String number) {
+        Pattern pattern = Pattern.compile("^010-\\d{4}-\\d{4}");
+        boolean isMatch = pattern.matcher(number).find();
+        return isMatch;
+    }
+
+    private static String inputNumber(Scanner sc) {
+        String number = sc.next();
+        while (!isPhoneNumber(number)) {
+            System.out.println("\n잘못된 형식입니다. (예시: 010-xxxx-xxxx)\n");
+            System.out.print("전화번호를 입력하세요: ");
+            number = sc.next();
+        }
+        return number;
+    }
+
     public static void main(String[] args) {
         AddressBook addressBook = new AddressBook();
-        do {
+        while (true) {
             // 메뉴 선택
             int option;
-            do {
-                System.out.println("1. 비즈니스 연락처 추가");
-                System.out.println("2. 개인 연락처 추가");
-                System.out.println("3. 연락처 출력");
-                System.out.println("4. 연락처 검색");
-                System.out.println("5. 종료");
+            while (true) {
+                System.out.println("""
+                        1. 비즈니스 연락처 추가
+                        2. 개인 연락처 추가
+                        3. 연락처 출력
+                        4. 연락처 검색
+                        5. 종료
+                        """);
+                System.out.println("메뉴를 선택해주세요: ");
                 try {
                     Scanner sc = new Scanner(System.in);
-                    System.out.print("메뉴를 선택해주세요: ");
                     option = sc.nextInt();
                     if (option < 1 || option > 5) {
-                        throw new OutOfNumberException();
+                        throw new OutOfNumberException("입력 가능한 번호가 아닙니다. (1~5 입력)");
                     }
                     break;
                 } catch (OutOfNumberException e) {
-                    System.out.println("\n입력 가능한 번호가 아닙니다. (1~5 입력)\n");
+                    System.out.println("\n"+e.getMessage()+"\n");
                 } catch (Exception e) {
                     System.out.println("\n잘못된 입력입니다.\n");
                 }
-            } while (true);
+            }
 
             Scanner sc = new Scanner(System.in);
 
-            // 비즈니스 연락처 추가
-            if (option == 1) {
-                BusinessContact bc = new BusinessContact();
-                System.out.print("이름을 입력하세요: ");
-                bc.setName(sc.next());
-                System.out.print("전화번호를 입력하세요: ");
-                bc.setPhoneNumber(sc.next());
-                System.out.print("회사명을 입력하세요: ");
-                bc.setCompany(sc.next());
-                addressBook.addContact(bc);
+            switch(option) {
+                // 비즈니스 연락처 추가
+                case 1:
+                    BusinessContact bc = new BusinessContact();
+                    System.out.print("이름을 입력하세요: ");
+                    bc.setName(sc.next());
+                    System.out.print("전화번호를 입력하세요: ");
+                    bc.setPhoneNumber(inputNumber(sc));
+                    System.out.print("회사명을 입력하세요: ");
+                    bc.setCompany(sc.next());
+                    addressBook.addContact(bc);
+                    break;
+
+                // 개인 연락처 추가
+                case 2:
+                    PersonalContact pc = new PersonalContact();
+                    System.out.print("이름을 입력하세요: ");
+                    pc.setName(sc.next());
+                    System.out.print("전화번호를 입력하세요: ");
+                    pc.setPhoneNumber(inputNumber(sc));
+                    System.out.print("관계을 입력하세요: ");
+                    pc.setRelationship(sc.next());
+                    addressBook.addContact(pc);
+                    break;
+
+                // 연락처 출력
+                case 3:
+                    addressBook.displayContacts();
+                    break;
+
+                // 연락처 검색
+                case 4:
+                    System.out.print("검색할 이름을 입력하세요: ");
+                    addressBook.searchContact(sc.next());
+                    break;
+
+                // 종료
+                case 5:
+                    System.out.println("프로그램을 종료합니다.");
+                    return;
             }
 
-            // 개인 연락처 추가
-            else if (option == 2) {
-                PersonalContact pc = new PersonalContact();
-                System.out.print("이름을 입력하세요: ");
-                pc.setName(sc.next());
-                System.out.print("전화번호를 입력하세요: ");
-                pc.setPhoneNumber(sc.next());
-                System.out.print("관계을 입력하세요: ");
-                pc.setRelationship(sc.next());
-                addressBook.addContact(pc);
-            }
-
-            // 연락처 출력
-            else if (option == 3) {
-                addressBook.displayContacts();
-            }
-
-            // 연락처 검색
-            else if (option == 4) {
-                System.out.print("검색할 이름을 입력하세요: ");
-                addressBook.searchContact(sc.next());
-            }
-
-            // 종료
-            else if (option == 5) {
-                System.out.println("프로그램을 종료합니다.");
-                break;
-            }
             System.out.println();
-        } while (true);
+        }
     }
 }
