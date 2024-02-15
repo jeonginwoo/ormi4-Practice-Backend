@@ -1,4 +1,4 @@
-package 특강.pokemon;
+package 특강.class_and_interface.pokemon;
 
 public class Charmander extends Pokemon implements Movable, Jumpable {
     public Charmander(int level) {

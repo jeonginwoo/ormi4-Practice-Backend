@@ -1,4 +1,4 @@
-package 특강.pokemon;
+package 특강.class_and_interface.pokemon;
 
 public class Metapod extends Pokemon {
     public Metapod(int level) {

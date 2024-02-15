@@ -11,7 +11,7 @@ public class UtilExample {
         System.out.println(childAge);
 
         // OtherPair는 Pair를 상속하지 않으므로 예외가 발생해야합니다.
-		/* OtherPair<String, Integer> otherPair = new OtherPair<>("삼길동, 20");
+		/* OtherPair<String, Integer> otherPair = new OtherPair<>("삼길동", 20);
 		   int otherAge = Util.getValue(otherPair, "삼길동");
 		   System.out.println(otherAge); */
     }

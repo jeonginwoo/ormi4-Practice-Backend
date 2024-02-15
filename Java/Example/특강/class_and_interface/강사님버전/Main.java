@@ -1,4 +1,4 @@
-package 특강.강사님버전;
+package 특강.class_and_interface.강사님버전;
 
 import java.util.List;
 
