@@ -1,11 +1,9 @@
-package ch11_컬렉션.hashmap;
-
-import ch11_컬렉션.set.Member;
+package ch11_컬렉션.set;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class HashSetTest {
+public class HashSetTest2 {
     public static void main(String[] args) {
         Set<Member> set = new HashSet<>();
 

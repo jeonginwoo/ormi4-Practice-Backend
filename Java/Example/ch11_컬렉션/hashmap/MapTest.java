@@ -1,4 +1,4 @@
-package ch11_컬렉션.list;
+package ch11_컬렉션.hashmap;
 
 import java.util.HashMap;
 import java.util.Iterator;

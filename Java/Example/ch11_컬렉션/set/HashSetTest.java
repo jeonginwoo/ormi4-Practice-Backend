@@ -3,7 +3,7 @@ package ch11_컬렉션.set;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class SetTest {
+public class HashSetTest {
     public static void main(String[] args) {
         HashSet<String> set = new HashSet<>();
         set.add("안녕하세요");
