@@ -1,4 +1,4 @@
-package ch12_람다식;
+package ch12_람다식.functionalInterface;
 
 @FunctionalInterface
 public interface MyFunctionalInterface1 {
