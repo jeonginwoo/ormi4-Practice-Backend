@@ -11,21 +11,23 @@ public class BracketCheck {
         Stack<Character> bracket = new Stack<>();
 
         String brackets = br.readLine();
-
+        boolean isMatchingBracket = false;
         for (int i = 0; i < brackets.length(); i++) {
             if (brackets.charAt(i) == '(') {
                 bracket.push(brackets.charAt(i));
             } else {
-                bracket.pop();
+                if (bracket.isEmpty()) {
+                    bracket.push(brackets.charAt(i));
+                    break;
+                } else {
+                    bracket.pop();
+                }
             }
             System.out.println(bracket);
         }
 
-        boolean isMatchingBracket;
         if (bracket.isEmpty()) {
             isMatchingBracket = true;
-        } else {
-            isMatchingBracket = false;
         }
 
         System.out.println(isMatchingBracket);
