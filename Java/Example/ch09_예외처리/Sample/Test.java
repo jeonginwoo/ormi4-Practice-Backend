@@ -1,4 +1,4 @@
-package ch09_예외처리;
+package ch09_예외처리.Sample;
 
 public class Test {
     static int test1() {
