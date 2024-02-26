@@ -1,7 +1,15 @@
 package com.example.blog;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Member {
     @Id
@@ -11,12 +19,4 @@ public class Member {
 
     @Column(name = "name", nullable = false)
     private String name;	// DB 테이블의 name과 컬럼 매칭
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
 }
