@@ -1,19 +1,11 @@
 package com.example.blog.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public class UpdateArticleRequest {
     private String title;
     private String content;
-
-    public UpdateArticleRequest(String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getContent() {
-        return content;
-    }
 }

@@ -41,4 +41,8 @@ public class BlogService {
         article.update(request.getTitle(), request.getContent());
         return article;
     }
+
+    public Article findById(Long id){
+        return blogRepository.findById(id).orElse(null);
+    }
 }
