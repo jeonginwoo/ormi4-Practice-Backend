@@ -23,15 +23,17 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.2.3'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-
-	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	//lombok 라이브러리
-	compileOnly 'org.projectlombok:lombok'
+	// lombok 라이브러리
+	compileOnly 'org.projectlombok:lombok'	// 반복 메소드 작성 작업 줄여줌
 	annotationProcessor 'org.projectlombok:lombok'
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
+
+	// 데이터베이스 관련
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'	// 스프링부트용 JPA
+	runtimeOnly 'com.h2database:h2'	// 로컬 환경, 테스트 환경에서 사용할 인메모리 데이터베이스
 }
 
 
