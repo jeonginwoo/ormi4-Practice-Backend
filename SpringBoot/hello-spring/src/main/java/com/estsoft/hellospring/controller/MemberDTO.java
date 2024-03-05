@@ -1,8 +1,6 @@
 package com.estsoft.hellospring.controller;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
