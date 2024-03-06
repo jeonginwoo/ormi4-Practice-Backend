@@ -21,3 +21,32 @@ services:
     volumes:
       # 디렉토리 마운트 설정
       - ~/programs/docker/mysql8/data:/var/lib/mysql
+
+  ##############################################
+  ## postgres
+  ##############################################
+#  # 서비스 명
+#  postgresql:
+#    # 사용할 이미지
+#    image: postgres
+#    # 컨테이너 실행 시 재시작
+#    restart: always
+#    # 컨테이너명 설정
+#    container_name: postgres_local
+#    # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
+#    ports:
+#      - "11803:5432"
+#    # 환경 변수 설정
+#    environment:
+#      # PostgreSQL 계정 및 패스워드 설정 옵션
+#      POSTGRES_USER: blog_master
+#      POSTGRES_PASSWORD: blog_master
+#      POSTGRES_DB: blog_master
+#    # 볼륨 설정
+#    volumes:
+#      - ~/programs/docker/postgres/:/var/lib/postgresql/data
+
+#volumes:
+#  postgresql:
+#    driver: local
+#  db_data:
