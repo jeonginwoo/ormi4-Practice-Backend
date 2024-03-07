@@ -1,14 +1,33 @@
 # https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
 
 spring:
+
+  # 현재 제대로된 설정이 아님. 실습하면서 수정!
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://localhost:11802/test
     username: root
     password: root
+
+    minimum-idle: 1       # 최소 하나
+    maximum-pool-size: 5  # 최대 다섯
+    pool-name: sampleConnectionPoll
+
+    connectionTimeout: 10000  # 10초마다 못들어간다는 것을 알려줌
+    validationTimeout: 5000   # 외부와 연결할 때 유효한지 노크 (연결이 안되면 우리도 내려야 하지 않을까? 5초까지만 기다리겠다)
+    idleTimeout: 600000
+
+    minimumIdle: 3
+    maximumPoolSize: 10
+
   flyway:
     enabled: false
+
+mybatis:
+  mapper-locations: classpath:mappers/**/*.xml  # classpath 이하의 mappers 폴더의 모든 하위 폴더의 모든 xml 파일
+
+
 
 logging:
   config: classpath:logback-local.xml
