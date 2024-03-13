@@ -2,6 +2,7 @@ package com.estsoft.blogjpa.controller;
 
 import com.estsoft.blogjpa.dto.ArticleRequest;
 import com.estsoft.blogjpa.dto.ArticleResponse;
+import com.estsoft.blogjpa.external.ExampleAPIClient;
 import com.estsoft.blogjpa.model.Article;
 import com.estsoft.blogjpa.service.BlogService;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,6 @@ import java.util.List;
 @Controller
 public class BlogController {
     private final BlogService blogService;
-
     public BlogController(BlogService blogService) {
         this.blogService = blogService;
     }
@@ -30,6 +30,7 @@ public class BlogController {
     public ResponseEntity<List<ArticleResponse>> showArticle() {
         List<Article> articleList = blogService.findAll();
         List<ArticleResponse> responseList = articleList.stream().map(ArticleResponse::new).toList();
+
 
         return ResponseEntity.ok(responseList);
     }
