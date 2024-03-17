@@ -1,0 +1,42 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.3'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.estsoft'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+/* 개발자가 컨트롤 하는 부분 */
+dependencies {
+	// 다운받을 라이브러리 목록 작성
+	// 예전에는 라이브러리 뒤쪽에 버전 정보를 명시해줬어야 하는데(버전 충돌 많이 난다) 지금은 생략 가능.
+
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.2.3'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// lombok 라이브러리
+	compileOnly 'org.projectlombok:lombok'	// 반복 메소드 작성 작업 줄여줌
+	annotationProcessor 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+
+	// 데이터베이스 관련
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'	// 스프링부트용 JPA
+	runtimeOnly 'com.h2database:h2'	// 로컬 환경, 테스트 환경에서 사용할 인메모리 데이터베이스
+}
+
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
