@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Entity // 테이블 생성
 @Getter
 @NoArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditingEntityListener.class)  // JPA 엔터티 이벤트를 수신하는 리스너 지정.
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,11 +27,11 @@ public class Article {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @CreatedDate    //
+    @CreatedDate    // 엔터티가 자동으로 생성된 시간을 자동으로 설정
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @LastModifiedDate   //
+    @LastModifiedDate   // 엔터티가 마지막으로 수정된 시간을 자동으로 설정
     @Column(name = "updated_at")
     private LocalDateTime updateAt;
 
